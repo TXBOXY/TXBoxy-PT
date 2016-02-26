@@ -1,6 +1,6 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is the basic firmware to control an ARDrone2 using an ESP8266 WiFi-chip.
 
 ### What is this repository for? ###
 
