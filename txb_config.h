@@ -8,9 +8,9 @@
 #ifndef TXB_CONFIG_H
 #define TXB_CONFIG_H
 
-#define LED_PIN BUILTIN_LED
-#define LED_ON  LOW
-#define LED_OFF HIGH
+#define LED_PIN 5 //BUILTIN_LED
+#define LED_ON  HIGH
+#define LED_OFF LOW
 
 #define TAKEOFF_SWITCH  AUX1
 #define KILL_SWITCH     AUX2

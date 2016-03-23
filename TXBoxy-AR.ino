@@ -208,6 +208,13 @@ void loop() {
       break;
 
     case TXB_LANDING:
+      /* Check first if you want to abort landing */
+      if (cppm.values[TAKEOFF_SWITCH] < CPPM_MIN_COMMAND) {
+        Serial.println("TAKEOFF");
+        at_ref(AT_REF_TAKEOFF);
+        txb_state = TXB_TAKING_OFF;
+        break;
+      }
       navdata_get_status();
       if (!navdata_state(ARDRONE_FLY_MASK)) {
         Serial.println("Landed!");
