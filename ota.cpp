@@ -4,7 +4,7 @@
  * Copyright (c) Bart Slinger
  * 
  * Upload command with OTA:
- * python /home/bart/.arduino15/packages/esp8266/hardware/esp8266/2.1.0/tools/espota.py -i txboxy.local -r -f /home/bart/Arduino/TXBoxy-AR/TXBoxy-AR.cpp.generic.bin
+ * python /home/bart/.arduino15/packages/esp8266/hardware/esp8266/2.1.0/tools/espota.py -i txboxy.local -r -f /home/bart/git/TXBoxy-AR/TXBoxy-AR.cpp.generic.bin
  * 
  */
 

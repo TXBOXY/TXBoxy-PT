@@ -199,6 +199,7 @@ void loop() {
       break;
 
     case TXB_FLYING:
+      navdata_get_status();
       if (cppm.values[TAKEOFF_SWITCH] > CPPM_MAX_COMMAND) {
         Serial.println("LANDING");
         at_ref(0);
@@ -331,6 +332,22 @@ void process_preflight()
 
 /* Common functionality for flying-related states */
 void flight_common() {
+  /* Check battery low signal */
+  if (navdata_state(ARDRONE_VBAT_LOW)) {
+    /* Set LEDs to RED blinking pattern */
+    static uint8_t cnt = 0; /* Hacky loop to prevent the need for callbacks */
+    if(cnt == 0) {
+      at_config("leds:leds_anim", "2,1084227584,0"); // Blink RED at 5 Hz
+    }
+    cnt++;
+    
+    /* Reduce available thrust as feedback to indicate low bat */
+    cppm.values[THROTTLE] -= 300;
+    if (cppm.values[THROTTLE] < CPPM_MIN_COMMAND) {
+      cppm.values[THROTTLE] = CPPM_MIN_COMMAND;
+    }
+  }
+  
   /* Check for kill signal */
   if (cppm.values[KILL_SWITCH] > CPPM_MAX_COMMAND) {
     Serial.println("Kill signal sent");
