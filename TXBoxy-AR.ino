@@ -236,7 +236,7 @@ void loop() {
     case TXB_KILLED:
       at_kill();
       navdata_get_status();
-      if (cppm.values[KILL_SWITCH] < CPPM_MIN_COMMAND && cppm.values[TAKEOFF_SWITCH] > CPPM_MAX_COMMAND) {
+      if (cppm.values[TAKEOFF_SWITCH] > CPPM_MAX_COMMAND) { // && cppm.values[KILL_SWITCH] < CPPM_MIN_COMMAND
         Serial.println("Try to unkill");
         at_ref(AT_REF_EMERGENCY);
         txb_state = TXB_UNKILL;
