@@ -103,8 +103,10 @@ void loop() {
       WiFi.mode(WIFI_STA);
       while(!find_ardrone2()) 
       {
+        digitalWrite(LED_PIN, !digitalRead(LED_PIN));
         delay(500);
       }
+      digitalWrite(LED_PIN, LED_OFF);
       cppm_continue();
       /* ARDrone2 found, continue to connect */
       txb_state = TXB_CONNECTING;
@@ -129,6 +131,7 @@ void loop() {
             Serial.println();
             break; // leave for-loop
           }
+          digitalWrite(LED_PIN, !digitalRead(LED_PIN));
           delay(500);
           Serial.print(".");
         }
@@ -163,6 +166,10 @@ void loop() {
 
     case TXB_OTA_UPDATE:
       /* Perform OTA update */
+      static uint8_t ota_led = 0;
+      if (ota_led == 5) digitalWrite(LED_PIN, LED_OFF);
+      if (ota_led == 0)  digitalWrite(LED_PIN, LED_ON);
+      ota_led++; ota_led %= 80;
       ota_handle_client();
       break;
 
@@ -359,7 +366,7 @@ void flight_common() {
   /* Check if crashed */
   if (navdata_state(ARDRONE_EMERGENCY_MASK)) {
     Serial.println("Crashed!");
-    txb_state = TXB_UNKILL;
+    txb_state = TXB_KILLED; //< Proceed as if it were killed
   }
   
   /* Send PCMD */
