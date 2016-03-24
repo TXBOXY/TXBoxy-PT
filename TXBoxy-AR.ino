@@ -354,6 +354,14 @@ void flight_common() {
       cppm.values[THROTTLE] = CPPM_MIN_COMMAND;
     }
   }
+  /* For range test, blink green leds */
+  else if (cppm.captured_position == TOP_LEFT) {
+    static uint8_t cntrangetest = 0; /* Hacky loop to prevent the need for callbacks */
+    if(cntrangetest == 0) {
+      at_config("leds:leds_anim", "1,1084227584,1"); // Blink GREEN at 5 Hz for 1 sec
+    }
+    cntrangetest++; cntrangetest %= 100;
+  }
   
   /* Check for kill signal */
   if (cppm.values[KILL_SWITCH] > CPPM_MAX_COMMAND) {
