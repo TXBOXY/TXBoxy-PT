@@ -1,10 +1,25 @@
 /*
- * TXBoxy-AR firmware for ARDrone2
+ * TXBoxy-PT firmware for ARDrone2
+ * Copyright (C) 2016 Bart Slinger
  * 
- * Copyright (c) Bart Slinger
+ * This file is part of TXBoxy-PT.
+ *
+ * TXBoxy-PT is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * TXBoxy-PT is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  * 
+ * You should have received a copy of the GNU General Public License
+ * along with TXBoxy-PT.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *
  * Upload command with OTA:
- * python /home/bart/.arduino15/packages/esp8266/hardware/esp8266/2.1.0/tools/espota.py -i txboxy.local -r -f /home/bart/git/TXBoxy-AR/TXBoxy-AR.cpp.generic.bin
+ * python ~/.arduino15/packages/esp8266/hardware/esp8266/2.1.0/tools/espota.py -i txboxy.local -r -f ~/git/TXBoxy-PT/TXBoxy-PT.cpp.generic.bin
  * 
  */
 
