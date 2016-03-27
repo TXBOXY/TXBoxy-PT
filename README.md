@@ -2,28 +2,4 @@
 
 This is the basic firmware to control an ARDrone2 using an ESP8266 WiFi-chip.
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+[![Demonstration video](http://img.youtube.com/vi/_K5ML7T26aQ/0.jpg)](https://www.youtube.com/watch?v=_K5ML7T26aQ)
