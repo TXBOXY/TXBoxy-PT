@@ -66,6 +66,9 @@ void cppm_capture_special_position()
   else if (cppm.values[AILERON] < CPPM_MIN_COMMAND && cppm.values[ELEVATOR] > CPPM_MAX_COMMAND) {
     cppm.captured_position = TOP_LEFT;
   }
+  else if (cppm.values[AILERON] < CPPM_MIN_COMMAND && cppm.values[ELEVATOR] < CPPM_MIN_COMMAND) {
+    cppm.captured_position = BOTTOM_LEFT;
+  }
 }
 
 void ISR_cppm()

@@ -24,7 +24,6 @@
 #include <WiFiUdp.h>
 #include "txb_config.h"
 #include "navdata.h"
-#include "telnet_debug.h"
 
 /* Public variables */
 uint32_t drone_state = 0xFFFFFFFF;      /* Initialize at invalid state    */
