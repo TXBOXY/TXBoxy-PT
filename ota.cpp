@@ -19,8 +19,8 @@
  *
  *
  * Upload command with OTA:
- * python ~/.arduino15/packages/esp8266/hardware/esp8266/2.1.0/tools/espota.py -i txboxy.local -r -f ~/git/TXBoxy-PT/TXBoxy-PT.cpp.generic.bin
- * python ~/.arduino15/packages/esp8266/hardware/esp8266/2.1.0/tools/espota.py -i txboxy.local -r -f ~/Dropbox/Electronics/TXBoxy-PT-PPRZ/TXBoxy-PT-PPRZ.cpp.generic.bin
+ * python ~/.arduino15/packages/esp8266/hardware/esp8266/2.3.0/tools/espota.py -i txboxy.local -r -f ~/git/TXBoxy-PT/TXBoxy-PT.ino.generic.bin
+ * python ~/.arduino15/packages/esp8266/hardware/esp8266/2.3.0/tools/espota.py -i txboxy.local -r -f ~/Dropbox/Electronics/TXBoxy-PT-PPRZ/TXBoxy-PT-PPRZ.ino.generic.bin
  * 
  */
 

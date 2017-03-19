@@ -35,12 +35,12 @@ const char* esp_ip   = "192.168.4.1";        /* IP Address of ESP8266 chip      
 
 /* Global variables */
 char ssid[20] = {" "};                      /* SSID to be filled by the WiFi-scan */
-const char* hotspotpass = "LHlqaSgu";
+const char* hotspotpass = "1234567890"; // LHlqaSgu
 const char* pass = "";                      /* ARDrone2 does not have a password by default */
 IPAddress myIP;
 IPAddress ardrone_broadcast_ip(192,168,1,255);
 IPAddress bebop_broadcast_ip(192,168,42,255);
-IPAddress hotspot_broadcast_ip(10,42,0,255);
+IPAddress hotspot_broadcast_ip(192,168,255,255);
 
 WiFiClient tn;
 WiFiUDP pprz_udp;
@@ -103,6 +103,7 @@ void setup() {
 }
 
 void loop() {
+  static uint8_t loop_counter = 0;
   /* Always update CPPM values from the transmitter */
   cppm_update();
 
@@ -243,8 +244,37 @@ void loop() {
       break;
 
     case TXB_TELNET_CONNECTING:
+      loop_counter = loop_counter % 175;
+      if (loop_counter == 0) {
+        digitalWrite(LED_PIN, LED_ON);
+      }
+      if (loop_counter == 10) {
+        digitalWrite(LED_PIN, LED_OFF);
+      }
+      if (loop_counter == 20) {
+        digitalWrite(LED_PIN, LED_ON);
+      }
+      if (loop_counter == 30) {
+        digitalWrite(LED_PIN, LED_OFF);
+      }
+      if (loop_counter == 40) {
+        digitalWrite(LED_PIN, LED_ON);
+      }
+      if (loop_counter == 50) {
+        digitalWrite(LED_PIN, LED_OFF);
+      }
+      if (loop_counter == 60) {
+        digitalWrite(LED_PIN, LED_ON);
+      }
+      if (loop_counter == 70) {
+        digitalWrite(LED_PIN, LED_OFF);
+      }
       if (tn.connected()) {
         txb_state = TXB_TELNET_REQUESTING_PSAUX;
+      }
+      if (loop_counter == 170) {
+        // try again
+        txb_state = TXB_PREFLIGHT;
       }
       break;
 
@@ -327,6 +357,7 @@ void loop() {
   }
 
   /* Provide some time for the WiFi loop */
+  loop_counter++;
   delay(15);
 }
 
@@ -359,7 +390,7 @@ bool find_ardrone2() {
     char bebop[] = "Bebop";
     char *pos2 = strstr (tmp, bebop);
 
-    char esp[] = "e540";
+    char esp[] = "MyAndroidPhone";
     char *pos3 = strstr (tmp, esp);
     
     Serial.print(i + 1);
